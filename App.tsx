@@ -1,0 +1,158 @@
+import React, { useState, useEffect, useRef } from 'react';
+import { Post, Friend, NarrativePhase } from './types';
+import { INITIAL_FRIENDS, BLOG_POSTS } from './constants';
+import { ProfileCard } from './components/ProfileCard';
+import { FriendsList } from './components/FriendsList';
+import { BlogPost } from './components/BlogPost';
+import { Header } from './components/Header';
+import { Shoutbox } from './components/Shoutbox';
+import { StickerWidget } from './components/StickerWidget';
+import { FinalPopup } from './components/FinalPopup';
+
+const POPUP_MESSAGES = [
+  "The cake is ready! ✨",
+  "Thanks for reading till the end! 🌸",
+  "You've unlocked a secret achievement! 🎀",
+  "Something special is waiting for you... 🍰",
+  "Want to see more exclusive content? 📸",
+  "Click to join the VIP members list! 🌸",
+  "You are visitor #1,000,000! 🍰"
+];
+
+const App: React.FC = () => {
+  // We track the scroll position to determine which post is active
+  const [visiblePostId, setVisiblePostId] = useState<number>(1);
+  const [showFinalPopup, setShowFinalPopup] = useState(false);
+  const [popupMessage, setPopupMessage] = useState("");
+  const currentPhase = NarrativePhase.NORMAL;
+  
+  // Create refs for posts to track visibility
+  const postRefs = useRef<Map<number, HTMLDivElement>>(new Map());
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // Visibility tracking
+      let activePostId = 1;
+      let minDistance = Infinity;
+
+      postRefs.current.forEach((element, id) => {
+        const rect = element.getBoundingClientRect();
+        const distance = Math.abs(rect.top + rect.height / 2 - window.innerHeight / 2);
+        if (distance < minDistance) {
+          minDistance = distance;
+          activePostId = id;
+        }
+      });
+
+      setVisiblePostId(activePostId);
+
+      // Bottom detection
+      const windowHeight = window.innerHeight;
+      const documentHeight = document.documentElement.scrollHeight;
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
+
+      // If we reach the bottom (within 10px)
+      if (scrollTop + windowHeight >= documentHeight - 10) {
+        if (!showFinalPopup) {
+          setPopupMessage(POPUP_MESSAGES[Math.floor(Math.random() * POPUP_MESSAGES.length)]);
+          setShowFinalPopup(true);
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [showFinalPopup]);
+
+  const handleInteraction = () => {
+    // Standard UI interaction handler
+  };
+
+  return (
+    <div className="min-h-screen text-pink-900 font-sans selection:bg-pink-300 selection:text-white pb-20 relative bg-pink-50/20">
+      
+      {showFinalPopup && (
+        <FinalPopup 
+          message={popupMessage} 
+          onClose={() => setShowFinalPopup(false)} 
+        />
+      )}
+
+      <div className="max-w-7xl mx-auto px-2 sm:px-4 md:px-6">
+        <Header onInteract={handleInteraction} phase={currentPhase} />
+
+        {/* Main Grid Layout */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-4 mt-6">
+          
+          {/* Left Sidebar - Sticky Profile */}
+          <div className="md:col-span-3 hidden md:block relative h-full">
+            <div className="sticky top-4 space-y-4 max-h-[calc(100vh-2rem)] overflow-y-auto scrollbar-hide">
+              <ProfileCard phase={currentPhase} />
+              <StickerWidget phase={currentPhase} />
+            </div>
+          </div>
+
+          {/* Center - Blog Content */}
+          <main className="md:col-span-6 space-y-4">
+            <div className="bg-white/80 backdrop-blur-sm border-4 border-pink-300 border-double p-3 rounded-xl text-center shadow-sm">
+              <h2 className="text-lg font-display font-bold text-pink-500 mb-1">✨ Recent Entries ✨</h2>
+              <p className="text-xs text-pink-400 font-mono">Viewing entry {visiblePostId} of {BLOG_POSTS.length}</p>
+            </div>
+
+            {BLOG_POSTS.map((post) => (
+              <div 
+                key={post.id} 
+                ref={(el) => {
+                  if (el) postRefs.current.set(post.id, el);
+                  else postRefs.current.delete(post.id);
+                }}
+              >
+                <BlogPost post={post} onInteract={handleInteraction} />
+              </div>
+            ))}
+
+            {/* Load More Button */}
+            <div className="flex justify-center mt-8">
+                <button 
+                  onClick={handleInteraction}
+                  className="px-6 py-3 rounded-full font-bold shadow-md transition-all transform hover:scale-105 active:scale-95 bg-white text-pink-500 border-2 border-pink-300 hover:bg-pink-50"
+                >
+                  🌸 Load More Entries...
+                </button>
+            </div>
+
+            <div className="p-8 text-center font-mono text-gray-400 text-xs">
+              © 2024 Deb's Blog. All rights reserved. <br/>
+              Don't steal my layout or I'll bite! ^_~
+            </div>
+          </main>
+
+          {/* Right Sidebar */}
+          <div className="md:col-span-3 hidden md:block relative h-full">
+            <div className="sticky top-4 space-y-4 max-h-[calc(100vh-2rem)] overflow-y-auto scrollbar-hide">
+              <FriendsList phase={currentPhase} initialFriends={INITIAL_FRIENDS} onInteract={handleInteraction} />
+              <Shoutbox phase={currentPhase} onInteract={handleInteraction} />
+              <div className="bg-lime-50 border-2 border-dashed border-lime-400 p-2 rounded-lg text-xs text-center font-mono text-lime-700">
+                <p>Visitor Count:</p>
+                <div className="bg-white text-pink-500 font-bold tracking-widest text-lg inline-block px-2 mt-1 border-2 border-lime-200 shadow-sm">
+                  01234
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          {/* Mobile Fallback */}
+          <div className="md:hidden space-y-6">
+             <ProfileCard phase={currentPhase} />
+             <StickerWidget phase={currentPhase} />
+             <FriendsList phase={currentPhase} initialFriends={INITIAL_FRIENDS} onInteract={handleInteraction} />
+             <Shoutbox phase={currentPhase} onInteract={handleInteraction} />
+          </div>
+
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default App;
