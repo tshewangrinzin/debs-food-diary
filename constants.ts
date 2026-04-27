@@ -26,16 +26,16 @@ export const BLOG_POSTS: Post[] = [
     title: "Sweet 21!! 🍓",
     mood: "Happy (*^▽^*)",
     music: "Kyary Pamyu Pamyu - PONPONPON",
-    content: "Reliving precious childhood memories with the collection of story books and puzzles I just discovered last week in my attic!!",
+    content: "meet-cute in my room",
     imageUrl: "/assets/p7.jpeg",
     tags: ["foodie", "cafe", "friends", "strawberry"],
     likes: 8,
     phase: NarrativePhase.NORMAL,
     comments: [
-      { id: 24, author: "ladygoogooggaagaa", date: "45 mins ago", content: "Ugh cutest friend group ever!!" },
-      { id: 25, author: "miss.bananini214", date: "1 hour ago", content: "Digital detox done right😻😻" },
-      { id: 26, author: "Sasha.1999", date: "2 hours ago", content: "Perfect way to reminisce over story books lemme go find some of mine too!!" },
-      { id: 27, author: "daisyletters", date: "3 hours ago", content: "AAAHH!! BSS goals" }
+      { id: 24, author: "ladygoogooggaagaa", date: "45 mins ago", content: "omg you guys are stunning" },
+      { id: 25, author: "miss.bananini214", date: "1 hour ago", content: "the outfits?? hello????" },
+      { id: 26, author: "Sasha.1999", date: "2 hours ago", content: "the aesthetic is everything" },
+      { id: 27, author: "daisyletters", date: "3 hours ago", content: "such a diverse group with a diverse vibe" }
     ]
   },
   {
@@ -63,17 +63,16 @@ export const BLOG_POSTS: Post[] = [
     title: "Sponsorship❤",
     mood: "Mysterious (o_O)",
     music: "Static Noise",
-    content: "Brainstorming sessions for recipes xoxo <<< thanks to my bsf for her goated inspos🤫😘",
+    content: "Reliving precious childhood memories with the collection of story books and puzzles I just discovered last week in my attic!!",
     imageUrl: "/assets/p5.jpeg",
     tags: ["ootd", "homecooking", "red"],
     likes: 47,
     phase: NarrativePhase.STAGE_1,
     comments: [
-      { id: 44, author: "ladygoogooggaagaa", date: "1 hour ago", content: "Omgg the laptop cover is soo chic link please 🤩" },
-      { id: 45, author: "miss.bananini214", date: "50 mins ago", content: "Your friend's entire outfit is elevated with that scarf –! Its giving confessions of a shopaholic power of the scarf 🫠🫠🫠 > I need one so bad" },
-      { id: 46, author: "Sasha.1999", date: "35 mins ago", content: "Never in my life would I look this elegant doing research work 🤣🤣" },
-      { id: 47, author: "daisyletters", date: "20 mins ago", content: "Oooo so excited" },
-      { id: 48, author: "lilacdreaming", date: "10 mins ago", content: "UGGHHH your friend has got that outfit spot on! Pink and Pretty" }
+      { id: 44, author: "ladygoogooggaagaa", date: "45 mins ago", content: "Ugh cutest friend group ever!!" },
+      { id: 45, author: "miss.bananini214", date: "1 hour ago", content: "Digital detox done right😻😻" },
+      { id: 46, author: "Sasha.1999", date: "2 hours ago", content: "Perfect way to reminisce over story books lemme go find some of mine too!!" },
+      { id: 47, author: "daisyletters", date: "3 hours ago", content: "AAAHH!! BSS goals" }
     ]
   },
   {
@@ -82,17 +81,17 @@ export const BLOG_POSTS: Post[] = [
     title: "Watching the lilies!",
     mood: "Happy 🤤",
     music: "Nature Sounds",
-    content: "Best mua in town 🤗🤗 Booked and busy only for yours truly",
+    content: "Brainstorming sessions for recipes xoxo <<< thanks to my bsf for her goated inspos🤫😘",
     imageUrl: "/assets/p4.jpeg",
     tags: ["dinner", "cooking"],
     likes: 83,
     phase: NarrativePhase.STAGE_1,
     comments: [
-      { id: 49, author: "ladygoogooggaagaa", date: "30 mins ago", content: "wowow celeb in town" },
-      { id: 50, author: "miss.bananini214", date: "25 mins ago", content: "2 BADDIES AND A CANVAS" },
-      { id: 51, author: "Sasha.1999", date: "20 mins ago", content: "Need ur products haul asap queen" },
-      { id: 52, author: "daisyletters", date: "15 mins ago", content: "Yesss honey you're looking so good lately" },
-      { id: 77, author: "lilacdreaming", date: "5 mins ago", content: "Need friends like that! So cute!!" }
+      { id: 49, author: "ladygoogooggaagaa", date: "1 hour ago", content: "Omgg the laptop cover is soo chic link please 🤩" },
+      { id: 50, author: "miss.bananini214", date: "50 mins ago", content: "Your friend's entire outfit is elevated with that scarf –! Its giving confessions of a shopaholic power of the scarf 🫠🫠🫠 > I need one so bad" },
+      { id: 51, author: "Sasha.1999", date: "35 mins ago", content: "Never in my life would I look this elegant doing research work 🤣🤣" },
+      { id: 52, author: "daisyletters", date: "20 mins ago", content: "Oooo so excited" },
+      { id: 77, author: "lilacdreaming", date: "10 mins ago", content: "UGGHHH your friend has got that outfit spot on! Pink and Pretty" }
     ]
   },
   {
@@ -121,16 +120,17 @@ export const BLOG_POSTS: Post[] = [
     title: "Tea Time Snap 📸",
     mood: "Content (◕‿◕)",
     music: "Afternoon Jazz",
-    content: "Retail therapy ++ bestie who has same taste as u xoxo",
+    content: "Best mua in town 🤗🤗 Booked and busy only for yours truly",
     imageUrl: "/assets/p3.jpeg",
     tags: ["tea", "aesthetic", "snap"],
     likes: 152,
     phase: NarrativePhase.STAGE_2,
     comments: [
-      { id: 28, author: "ladygoogooggaagaa", date: "1 hour ago", content: "AHHHH SO CUTE" },
-      { id: 56, author: "miss.bananini214", date: "50 mins ago", content: "Deb and esther eating up in every brand they buy 🤩🤩😍 cant wait for a HAULL" },
-      { id: 57, author: "Sasha.1999", date: "30 mins ago", content: "Omg was just looking for inspo for a jewelry stack yayy" },
-      { id: 80, author: "daisyletters", date: "15 mins ago", content: "Omg ur friends dress is the perfect spring fit" }
+      { id: 28, author: "ladygoogooggaagaa", date: "30 mins ago", content: "wowow celeb in town" },
+      { id: 56, author: "miss.bananini214", date: "25 mins ago", content: "2 BADDIES AND A CANVAS" },
+      { id: 57, author: "Sasha.1999", date: "20 mins ago", content: "Need ur products haul asap queen" },
+      { id: 80, author: "daisyletters", date: "15 mins ago", content: "Yesss honey you're looking so good lately" },
+      { id: 81, author: "lilacdreaming", date: "5 mins ago", content: "Need friends like that! So cute!!" }
     ]
   },
   {
@@ -139,15 +139,16 @@ export const BLOG_POSTS: Post[] = [
     title: "Bookshop Date",
     mood: "Happy (*^▽^*)",
     music: "Lo-fi Beats",
-    content: "Felt pretty might delete 🥰💁♀️",
+    content: "Retail therapy ++ bestie who has same taste as u xoxo",
     imageUrl: "/assets/p2.jpeg",
     tags: ["reading", "deb", "date"],
     likes: 189,
     phase: NarrativePhase.FINAL,
     comments: [
-      { id: 58, author: "ladygoogooggaagaa", date: "1 hour ago", content: "Oh... this is soo different" },
-      { id: 59, author: "miss.bananini214", date: "45 mins ago", content: "Woahh so cool" },
-      { id: 60, author: "Sasha.1999", date: "20 mins ago", content: "Mam!! You look so awesome!!" }
+      { id: 58, author: "ladygoogooggaagaa", date: "1 hour ago", content: "AHHHH SO CUTE" },
+      { id: 59, author: "miss.bananini214", date: "50 mins ago", content: "Deb and esther eating up in every brand they buy 🤩🤩😍 cant wait for a HAULL" },
+      { id: 60, author: "Sasha.1999", date: "30 mins ago", content: "Omg was just looking for inspo for a jewelry stack yayy" },
+      { id: 82, author: "daisyletters", date: "15 mins ago", content: "Omg ur friends dress is the perfect spring fit" }
     ]
   },
   {
@@ -230,15 +231,16 @@ export const BLOG_POSTS: Post[] = [
     title: "Bonus Reel 🎬✨",
     mood: "Excited (ﾉ◕ヮ◕)ﾉ*:・゚✧",
     music: "Upbeat K-Pop",
-    content: "A special bonus reel just for you! Thank you for scrolling all the way down 💕 Here's a little montage of our best moments together!",
+    content: "no script just vibes",
     imageUrl: "/assets/p3.jpeg",
     videoUrl: "/assets/v4.mp4",
     tags: ["bonus", "reel", "moments", "special"],
     likes: 312,
     phase: NarrativePhase.FINAL,
     comments: [
-      { id: 42, author: "stardustangel", date: "3 mins ago", content: "I'm not crying you're crying 😭✨" },
-      { id: 43, author: "moonbeamxx", date: "1 min ago", content: "This made my whole day 🌸" }
+      { id: 42, author: "ladygoogooggaagaa", date: "3 mins ago", content: "THIS IS SO GOOD???" },
+      { id: 43, author: "miss.bananini214", date: "2 mins ago", content: "you're SOO gorgeous" },
+      { id: 44, author: "Sasha.1999", date: "1 min ago", content: "omg i LOVE this blog!" }
     ]
   }
 ];

@@ -101,12 +101,7 @@ export const BlogPost: React.FC<Props> = ({ post, onInteract }) => {
             {post.content}
         </p>
         
-        {/* Tags */}
-        <div className="mt-4 flex gap-2 flex-wrap">
-          {post.tags.map(tag => (
-            <span key={tag} className="text-xs text-pink-500 bg-pink-100 px-2 py-1 rounded">#{tag}</span>
-          ))}
-        </div>
+
       </div>
 
       {/* Footer/Actions */}
@@ -129,10 +124,17 @@ export const BlogPost: React.FC<Props> = ({ post, onInteract }) => {
         <div className="bg-pink-50/30 p-4 border-t border-pink-100 space-y-3">
           {post.comments.map(comment => (
             <div key={comment.id} className="flex gap-2 text-xs">
-               <div className={`w-8 h-8 rounded-full flex items-center justify-center font-bold text-white shadow-sm
-                 ${comment.author === 'Tatiana' ? 'bg-yellow-400' : 
-                   comment.author === 'Emma' ? 'bg-blue-400' : 
-                   comment.author === 'Deb' ? 'bg-pink-400' : 'bg-gray-400'}`}>
+               <div className={`w-8 h-8 rounded-full flex items-center justify-center font-bold text-white shadow-sm flex-shrink-0
+                 ${comment.author === 'Tatiana' ? 'bg-yellow-400' :
+                   comment.author === 'Emma' ? 'bg-blue-400' :
+                   comment.author === 'Deb' ? 'bg-pink-400' :
+                   comment.author === 'ladygoogooggaagaa' ? 'bg-purple-500' :
+                   comment.author === 'miss.bananini214' ? 'bg-orange-400' :
+                   comment.author === 'Sasha.1999' ? 'bg-teal-500' :
+                   comment.author === 'daisyletters' ? 'bg-rose-400' :
+                   comment.author === 'lilacdreaming' ? 'bg-indigo-400' :
+                   comment.author === 'Christinabakes' ? 'bg-amber-500' :
+                   'bg-gray-400'}`}>
                  {comment.author[0]}
                </div>
                <div className="bg-white p-2 rounded-r-lg rounded-bl-lg border border-gray-100 shadow-sm flex-1">

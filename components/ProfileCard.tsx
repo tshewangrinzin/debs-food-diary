@@ -47,13 +47,7 @@ export const ProfileCard: React.FC<Props> = ({ phase }) => {
         </div>
       </div>
       
-      {!isFinal && (
-        <div className="mt-4 flex gap-1 flex-wrap">
-            <span className="bg-pink-200 text-pink-800 text-xs px-2 py-0.5 rounded-full">#girly</span>
-            <span className="bg-blue-200 text-blue-800 text-xs px-2 py-0.5 rounded-full">#blog</span>
-            <span className="bg-purple-200 text-purple-800 text-xs px-2 py-0.5 rounded-full">#foodie</span>
-        </div>
-      )}
+
     </div>
   );
 };
