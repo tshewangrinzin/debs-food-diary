@@ -34,6 +34,7 @@ export interface Post {
   imageUrl: string; // Placeholder or specific
   videoUrl?: string; // Optional video path
   tags: string[];
+  likes: number;
   comments: Comment[];
   phase: NarrativePhase; // Which narrative phase this post belongs to
 }

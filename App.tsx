@@ -1,12 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Post, Friend, NarrativePhase } from './types';
-import { INITIAL_FRIENDS, BLOG_POSTS } from './constants';
+import { Post, NarrativePhase } from './types';
+import { BLOG_POSTS } from './constants';
 import { ProfileCard } from './components/ProfileCard';
-import { FriendsList } from './components/FriendsList';
 import { BlogPost } from './components/BlogPost';
 import { Header } from './components/Header';
 import { Shoutbox } from './components/Shoutbox';
-import { StickerWidget } from './components/StickerWidget';
 import { FinalPopup } from './components/FinalPopup';
 
 const POPUP_MESSAGES = [
@@ -173,7 +171,6 @@ const App: React.FC = () => {
           <div className="md:col-span-3 hidden md:block relative h-full">
             <div className="sticky top-4 space-y-4 max-h-[calc(100vh-2rem)] overflow-y-auto scrollbar-hide">
               <ProfileCard phase={currentPhase} />
-              <StickerWidget phase={currentPhase} />
             </div>
           </div>
 
@@ -221,7 +218,6 @@ const App: React.FC = () => {
           {/* Right Sidebar */}
           <div className="md:col-span-3 hidden md:block relative h-full">
             <div className="sticky top-4 space-y-4 max-h-[calc(100vh-2rem)] overflow-y-auto scrollbar-hide">
-              <FriendsList phase={currentPhase} initialFriends={INITIAL_FRIENDS} onInteract={handleInteraction} />
               <Shoutbox phase={currentPhase} onInteract={handleInteraction} />
               <div className="bg-lime-50 border-2 border-dashed border-lime-400 p-2 rounded-lg text-xs text-center font-mono text-lime-700">
                 <p>Visitor Count:</p>
@@ -235,8 +231,6 @@ const App: React.FC = () => {
           {/* Mobile Fallback */}
           <div className="md:hidden space-y-6">
              <ProfileCard phase={currentPhase} />
-             <StickerWidget phase={currentPhase} />
-             <FriendsList phase={currentPhase} initialFriends={INITIAL_FRIENDS} onInteract={handleInteraction} />
              <Shoutbox phase={currentPhase} onInteract={handleInteraction} />
           </div>
 

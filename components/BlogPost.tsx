@@ -67,7 +67,6 @@ export const BlogPost: React.FC<Props> = ({ post, onInteract }) => {
         ${isHorror ? 'bg-pink-50 border-pink-200 text-pink-900' : 'bg-pink-50 border-pink-200'}
       `}>
         <div>
-          <h3 className="font-display font-bold text-lg leading-tight">{post.title}</h3>
           <p className="text-xs font-mono opacity-70">{post.date}</p>
         </div>
         <div className="text-right text-xs font-mono hidden sm:block">
@@ -114,7 +113,7 @@ export const BlogPost: React.FC<Props> = ({ post, onInteract }) => {
       <div className="bg-gray-50 p-3 border-t border-gray-100 flex justify-between text-xs font-bold text-gray-500">
         <div className="flex gap-4">
           <button onClick={onInteract} className="flex items-center gap-1 hover:text-pink-500 transition-colors">
-            <Heart size={14} /> {post.phase === NarrativePhase.FINAL ? '0' : '24'} Likes
+            <Heart size={14} /> {post.likes} Likes
           </button>
           <button onClick={onInteract} className="flex items-center gap-1 hover:text-blue-500 transition-colors">
             <MessageSquare size={14} /> {post.comments.length} Comments

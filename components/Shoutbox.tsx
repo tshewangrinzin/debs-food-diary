@@ -17,9 +17,6 @@ export const Shoutbox: React.FC<Props> = ({ phase, onInteract }) => {
           <span className="font-bold text-blue-600">Guest123:</span> nice layout!
         </div>
         <div className="border-b border-purple-100 pb-1">
-          <span className="font-bold text-pink-600">xX_DarkAngel_Xx:</span> l4l?
-        </div>
-        <div className="border-b border-purple-100 pb-1">
           <span className="font-bold text-green-600">KawaiiCoder:</span> So cute!!
         </div>
         <div className="border-b border-purple-100 pb-1">

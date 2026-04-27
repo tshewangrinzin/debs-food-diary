@@ -25,19 +25,14 @@ const CHARACTERS: Record<CharacterId, string> = {
 export const Avatar: React.FC<Props> = ({ character, className = "w-10 h-10", alt }) => {
   return (
     <div 
-      className={`${className} bg-no-repeat bg-pink-100 rounded-md shrink-0 relative overflow-hidden`}
+      className={`${className} bg-pink-100 rounded-md shrink-0 relative overflow-hidden`}
       role="img"
       aria-label={alt || character}
     >
-        <div 
-            className="absolute inset-0 w-full h-full"
-            style={{
-                backgroundImage: `url('${CHARACTERS[character]}')`,
-                backgroundSize: 'contain',
-                backgroundPosition: 'center',
-                backgroundRepeat: 'no-repeat',
-                imageRendering: 'pixelated'
-            }}
+        <img
+            src={CHARACTERS[character]}
+            alt={alt || character}
+            className="absolute inset-0 w-full h-full object-contain"
         />
     </div>
   );

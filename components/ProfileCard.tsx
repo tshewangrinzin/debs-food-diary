@@ -18,7 +18,7 @@ export const ProfileCard: React.FC<Props> = ({ phase }) => {
       case NarrativePhase.FINAL:
         return "Likes: Sweets, Baking, Hanging out with friends. Dislikes: Rotten food.";
       default:
-        return "Likes: Geology, Manga, JJBA, Kamen Rider, Sugar Sugar Rune. Dislikes: Veggies.";
+        return "Likes: Foodie, Sanrio, Katseye, Labubu, Dubai Chocolate, Boba!";
     }
   };
 
