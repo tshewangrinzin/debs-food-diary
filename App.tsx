@@ -32,18 +32,85 @@ const App: React.FC = () => {
   const postRefs = useRef<Map<number, HTMLDivElement>>(new Map());
 
   // Handle hash-based navigation — scroll target to center of viewport
+  // Uses instant scrolls during stabilisation so layout shifts can't interrupt,
+  // then one final smooth scroll once the position is locked in.
   useEffect(() => {
-    const hash = window.location.hash.slice(1);
-    if (hash) {
+    const scrollToHash = (hash: string) => {
+      if (!hash) return;
       arrivedViaHash.current = true;
-      // Small delay to ensure DOM is fully rendered
-      setTimeout(() => {
+
+      let lastTop = -1;
+      let stableCount = 0;
+      const maxAttempts = 80; // 80 × 100ms = 8s max (hard reload can be slow)
+      let attempts = 0;
+      let settled = false;
+
+      const scrollToCenter = (el: HTMLElement, smooth: boolean) => {
+        const rect = el.getBoundingClientRect();
+        const targetY = rect.top + window.scrollY - (window.innerHeight / 2) + (rect.height / 2);
+        window.scrollTo({ top: targetY, behavior: smooth ? 'smooth' : 'instant' });
+      };
+
+      const poll = () => {
+        if (settled) return;
+        attempts++;
         const el = document.getElementById(hash);
-        if (el) {
-          el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        if (!el) {
+          if (attempts < maxAttempts) setTimeout(poll, 100);
+          return;
         }
-      }, 300);
-    }
+
+        const currentTop = el.getBoundingClientRect().top + window.scrollY;
+
+        if (Math.abs(currentTop - lastTop) < 2) {
+          stableCount++;
+        } else {
+          stableCount = 0;
+        }
+        lastTop = currentTop;
+
+        // Snap instantly during stabilisation — can't be interrupted by layout shifts
+        scrollToCenter(el, false);
+
+        if (stableCount >= 3) {
+          // Position locked — do one final smooth scroll for polish
+          settled = true;
+          setTimeout(() => scrollToCenter(el, true), 50);
+        } else if (attempts < maxAttempts) {
+          setTimeout(poll, 100);
+        }
+      };
+
+      // Also react to images/videos loading which cause layout shifts
+      const onLoad = () => {
+        if (!settled) {
+          stableCount = 0; // reset — layout just shifted
+        }
+      };
+      window.addEventListener('load', onLoad);
+      document.addEventListener('load', onLoad, true); // capture phase for img/video load events
+
+      // Start after first paint
+      requestAnimationFrame(() => setTimeout(poll, 0));
+
+      // Cleanup on next call
+      return () => {
+        settled = true;
+        window.removeEventListener('load', onLoad);
+        document.removeEventListener('load', onLoad, true);
+      };
+    };
+
+    // Handle initial page load
+    const cleanup = scrollToHash(window.location.hash.slice(1));
+
+    // Handle in-page hash changes (SPA navigation)
+    const onHashChange = () => scrollToHash(window.location.hash.slice(1));
+    window.addEventListener('hashchange', onHashChange);
+    return () => {
+      cleanup?.();
+      window.removeEventListener('hashchange', onHashChange);
+    };
   }, []);
 
   useEffect(() => {
