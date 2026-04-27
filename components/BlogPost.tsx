@@ -1,7 +1,46 @@
-import React from 'react';
+import React, { useRef, useEffect, useCallback } from 'react';
 import { Post, NarrativePhase, CharacterId } from '../types';
 import { MessageSquare, Heart, Share2 } from 'lucide-react';
 import { Avatar } from './Avatar';
+
+// Autoplay with sound: starts muted (browser requirement), unmutes on first user interaction
+const AutoPlayVideo: React.FC<{ src: string; className?: string }> = ({ src, className }) => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  const unmute = useCallback(() => {
+    const video = videoRef.current;
+    if (video) {
+      video.muted = false;
+    }
+    // Remove listeners after first interaction
+    document.removeEventListener('click', unmute);
+    document.removeEventListener('keydown', unmute);
+    document.removeEventListener('touchstart', unmute);
+  }, []);
+
+  useEffect(() => {
+    document.addEventListener('click', unmute);
+    document.addEventListener('keydown', unmute);
+    document.addEventListener('touchstart', unmute);
+    return () => {
+      document.removeEventListener('click', unmute);
+      document.removeEventListener('keydown', unmute);
+      document.removeEventListener('touchstart', unmute);
+    };
+  }, [unmute]);
+
+  return (
+    <video
+      ref={videoRef}
+      src={src}
+      className={className}
+      controls
+      autoPlay
+      muted
+      loop
+    />
+  );
+};
 
 interface Props {
   post: Post;
@@ -39,13 +78,9 @@ export const BlogPost: React.FC<Props> = ({ post, onInteract }) => {
       {/* Post Image/Video */}
       <div className="border-y-2 border-pink-100 overflow-hidden bg-pink-50/30">
           {post.videoUrl ? (
-              <video 
+              <AutoPlayVideo 
                 src={post.videoUrl} 
                 className="w-full h-auto block" 
-                controls 
-                autoPlay 
-                muted 
-                loop 
               />
           ) : isSprite ? (
               <div className="w-full h-80 flex items-center justify-center">
