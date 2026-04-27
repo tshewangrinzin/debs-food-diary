@@ -27,7 +27,7 @@ export const BLOG_POSTS: Post[] = [
     mood: "Happy (*^▽^*)",
     music: "Kyary Pamyu Pamyu - PONPONPON",
     content: "Turning 21! Five hearts for the five of us <3 been going strong for eleven years now ><",
-    imageUrl: "./assets/p7.jpeg",
+    imageUrl: "/assets/p7.jpeg",
     tags: ["foodie", "cafe", "friends", "strawberry"],
     phase: NarrativePhase.NORMAL,
     comments: [
@@ -42,7 +42,7 @@ export const BLOG_POSTS: Post[] = [
     mood: "Bored (￣^￣)",
     music: "Lo-fi Beats",
     content: "What am I without my lip combo? Anyways I loved the tea! A little bitter and leaves sort of a metallic aftertaste",
-    imageUrl: "./assets/p6.jpeg",
+    imageUrl: "/assets/p6.jpeg",
     tags: ["waiting", "parfait"],
     phase: NarrativePhase.NORMAL,
     comments: [
@@ -57,7 +57,7 @@ export const BLOG_POSTS: Post[] = [
     mood: "Mysterious (o_O)",
     music: "Static Noise",
     content: "#Ad You can't enter the streets without glam! @flowerknows make up truly is the best 🤍🤍 If you don't want those dark spots and pimple marks to obscure your true beauty, definitely go for their concealer, I'll post a makeup tutorial sooon! Thank you @flowerknows.",
-    imageUrl: "./assets/p5.jpeg",
+    imageUrl: "/assets/p5.jpeg",
     tags: ["ootd", "homecooking", "red"],
     phase: NarrativePhase.STAGE_1,
     comments: [
@@ -72,7 +72,7 @@ export const BLOG_POSTS: Post[] = [
     mood: "Happy 🤤",
     music: "Nature Sounds",
     content: "Just as the starglazer lily, I gaze longingly at the stars, at the beauty of nature. The color is so vibrant!",
-    imageUrl: "./assets/p4.jpeg",
+    imageUrl: "/assets/p4.jpeg",
     tags: ["dinner", "cooking"],
     phase: NarrativePhase.STAGE_1,
     comments: [
@@ -87,8 +87,8 @@ export const BLOG_POSTS: Post[] = [
     mood: "Satisfied ✨",
     music: "Calm Piano",
     content: "Two cakes for the four of us! A wonderful afternoon tea session with everyone.",
-    imageUrl: "./assets/p3.jpeg",
-    videoUrl: "./assets/v1.mp4",
+    imageUrl: "/assets/p3.jpeg",
+    videoUrl: "/assets/v1.mp4",
     tags: ["jewelry", "collection", "full"],
     phase: NarrativePhase.STAGE_2,
     comments: [
@@ -107,7 +107,7 @@ export const BLOG_POSTS: Post[] = [
     mood: "Happy (*^▽^*)",
     music: "Lo-fi Beats",
     content: "Book shop date with Tatiana! I found a beautiful edition of 'The Picture of Dorian Gray'.",
-    imageUrl: "./assets/p2.jpeg",
+    imageUrl: "/assets/p2.jpeg",
     tags: ["reading", "deb", "date"],
     phase: NarrativePhase.FINAL,
     comments: [
@@ -122,7 +122,7 @@ export const BLOG_POSTS: Post[] = [
     mood: "Happy (*^▽^*)",
     music: "Upbeat Pop",
     content: "This cake was absolutely amazing! The strawberry cream was so light and the sponge was perfectly fluffy. I could eat this every day!",
-    imageUrl: "./assets/p1.jpeg", 
+    imageUrl: "/assets/p1.jpeg", 
     tags: ["cake", "sweet", "yum"],
     phase: NarrativePhase.FINAL,
     comments: [
@@ -138,8 +138,8 @@ export const BLOG_POSTS: Post[] = [
     mood: "Relaxed (✿◠‿◠)",
     music: "City Pop",
     content: "Just a quick video of the evening lights. Everything feels so peaceful tonight. I hope you're all having a great weekend!",
-    imageUrl: "./assets/p3.jpeg",
-    videoUrl: "./assets/v-2.mp4",
+    imageUrl: "/assets/p3.jpeg",
+    videoUrl: "/assets/v-2.mp4",
     tags: ["night", "aesthetic", "vlog"],
     phase: NarrativePhase.NORMAL,
     comments: [
