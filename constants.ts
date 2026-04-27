@@ -26,13 +26,17 @@ export const BLOG_POSTS: Post[] = [
     title: "Sweet 21!! 🍓",
     mood: "Happy (*^▽^*)",
     music: "Kyary Pamyu Pamyu - PONPONPON",
-    content: "Turning 21! Five hearts for the five of us <3 been going strong for eleven years now ><",
+    content: "Reliving precious childhood memories with the collection of story books and puzzles I just discovered last week in my attic!!",
     imageUrl: "/assets/p7.jpeg",
     tags: ["foodie", "cafe", "friends", "strawberry"],
     phase: NarrativePhase.NORMAL,
     comments: [
       { id: 1, author: "Tatiana", date: "10 mins ago", content: "This is so cutee!", isFriend: true },
-      { id: 2, author: "Emma", date: "15 mins ago", content: "congoo", isFriend: true }
+      { id: 2, author: "Emma", date: "15 mins ago", content: "congoo", isFriend: true },
+      { id: 24, author: "sugarplumfairy", date: "45 mins ago", content: "Ugh cutest friend group ever!!" },
+      { id: 25, author: "moonbeamxx", date: "1 hour ago", content: "Digital detox done right😻😻" },
+      { id: 26, author: "bookworm_bea", date: "2 hours ago", content: "Perfect way to reminisce over story books lemme go find some of mine too!!" },
+      { id: 27, author: "stardustangel", date: "3 hours ago", content: "AAAHH!! BSS goals" }
     ]
   },
   {
@@ -41,13 +45,18 @@ export const BLOG_POSTS: Post[] = [
     title: "Lip and Tea...",
     mood: "Bored (￣^￣)",
     music: "Lo-fi Beats",
-    content: "What am I without my lip combo? Anyways I loved the tea! A little bitter and leaves sort of a metallic aftertaste",
+    content: "Dressed up not for the club but a premium home theatre sleepover🎟💁‍♀️",
     imageUrl: "/assets/p6.jpeg",
     tags: ["waiting", "parfait"],
     phase: NarrativePhase.NORMAL,
     comments: [
       { id: 3, author: "Emma", date: "1 hour ago", content: "Drop the shades girl!!", isFriend: true },
-      { id: 10, author: "Tatiana", date: "1 hour ago", content: "That shit must slap so goodddd!", isFriend: true }
+      { id: 10, author: "Tatiana", date: "1 hour ago", content: "That shit must slap so goodddd!", isFriend: true },
+      { id: 35, author: "sugarplumfairy", date: "45 mins ago", content: "YASSS GIRLS NIGHT😝😝" },
+      { id: 36, author: "moonbeamxx", date: "30 mins ago", content: "Ugh wish my friends could also plan for a sleepover major fomo😩" },
+      { id: 37, author: "stardustangel", date: "20 mins ago", content: "So true not everything requires alcohol 😝 love some maturity in my girlies" },
+      { id: 38, author: "bookworm_bea", date: "15 mins ago", content: "Oooo is that the substance??" },
+      { id: 39, author: "fan69", date: "5 mins ago", content: "OMG you guys are so prettyyyy" }
     ]
   },
   {
@@ -102,6 +111,21 @@ export const BLOG_POSTS: Post[] = [
   },
   {
     id: 6,
+    date: "August 16th, 2026",
+    title: "Tea Time Snap 📸",
+    mood: "Content (◕‿◕)",
+    music: "Afternoon Jazz",
+    content: "Caught the perfect angle of our afternoon tea spread! The pastries were almost too pretty to eat... almost 😋",
+    imageUrl: "/assets/p3.jpeg",
+    tags: ["tea", "aesthetic", "snap"],
+    phase: NarrativePhase.STAGE_2,
+    comments: [
+      { id: 28, author: "Anonymous77", date: "3 hours ago", content: "This looks so dreamy!" },
+      { id: 29, author: "Tatiana", date: "2 hours ago", content: "I remember this!! 🥺", isFriend: true }
+    ]
+  },
+  {
+    id: 7,
     date: "August 18th, 2026",
     title: "Bookshop Date",
     mood: "Happy (*^▽^*)",
@@ -116,24 +140,8 @@ export const BLOG_POSTS: Post[] = [
     ]
   },
   {
-    id: 7,
-    date: "August 20th, 2026",
-    title: "Delicious Cake ✨",
-    mood: "Happy (*^▽^*)",
-    music: "Upbeat Pop",
-    content: "This cake was absolutely amazing! The strawberry cream was so light and the sponge was perfectly fluffy. I could eat this every day!",
-    imageUrl: "/assets/p1.jpeg", 
-    tags: ["cake", "sweet", "yum"],
-    phase: NarrativePhase.FINAL,
-    comments: [
-      { id: 7, author: "Fan123", date: "5 mins ago", content: "You look so pretty!" },
-      { id: 8, author: "CuteLover", date: "2 mins ago", content: "Your hair looks so shiny today." },
-      { id: 9, author: "Anon", date: "Just now", content: "I love your content!" }
-    ]
-  },
-  {
     id: 8,
-    date: "August 22nd, 2026",
+    date: "August 19th, 2026",
     title: "Evening Vibes 🌙",
     mood: "Relaxed (✿◠‿◠)",
     music: "City Pop",
@@ -145,6 +153,72 @@ export const BLOG_POSTS: Post[] = [
     comments: [
       { id: 21, author: "Tatiana", date: "1 hour ago", content: "Looking good!", isFriend: true },
       { id: 22, author: "Emma", date: "2 hours ago", content: "Pretttty!", isFriend: true }
+    ]
+  },
+  {
+    id: 9,
+    date: "August 20th, 2026",
+    title: "Delicious Cake ✨",
+    mood: "Happy (*^▽^*)",
+    music: "Upbeat Pop",
+    content: "This cake was absolutely amazing! The strawberry cream was so light and the sponge was perfectly fluffy. I could eat this every day!",
+    imageUrl: "/assets/p1.jpeg",
+    tags: ["cake", "sweet", "yum"],
+    phase: NarrativePhase.FINAL,
+    comments: [
+      { id: 7, author: "Fan123", date: "5 mins ago", content: "You look so pretty!" },
+      { id: 8, author: "CuteLover", date: "2 mins ago", content: "Your hair looks so shiny today." },
+      { id: 9, author: "Anon", date: "Just now", content: "I love your content!" }
+    ]
+  },
+  {
+    id: 10,
+    date: "August 21st, 2026",
+    title: "Weekend Moments 🎬",
+    mood: "Cheerful (⌒▽⌒)",
+    music: "Indie Pop",
+    content: "A little weekend vlog! Sometimes the simplest moments are the most special ones ✨",
+    imageUrl: "/assets/p3.jpeg",
+    videoUrl: "/assets/v3.mp4",
+    tags: ["weekend", "vlog", "moments"],
+    phase: NarrativePhase.FINAL,
+    comments: [
+      { id: 30, author: "Emma", date: "30 mins ago", content: "This is adorable!!", isFriend: true },
+      { id: 31, author: "stardustangel", date: "1 hour ago", content: "The vibes are immaculate 💫" }
+    ]
+  },
+  {
+    id: 11,
+    date: "August 22nd, 2026",
+    title: "Golden Hour ☀️",
+    mood: "Dreamy (✧ω✧)",
+    music: "Soft Acoustic",
+    content: "Caught the most beautiful golden hour light today. Sometimes you just have to stop and appreciate the little things 🌅",
+    imageUrl: "/assets/p8.jpeg",
+    tags: ["golden", "sunset", "peaceful"],
+    phase: NarrativePhase.FINAL,
+    comments: [
+      { id: 32, author: "Tatiana", date: "20 mins ago", content: "Stunning!! 😍", isFriend: true },
+      { id: 33, author: "moonbeamxx", date: "1 hour ago", content: "Golden hour hits different 🌸" },
+      { id: 34, author: "bookworm_bea", date: "2 hours ago", content: "This is giving main character energy!" }
+    ]
+  },
+  {
+    id: 12,
+    date: "August 25th, 2026",
+    title: "Bonus Reel 🎬✨",
+    mood: "Excited (ﾉ◕ヮ◕)ﾉ*:・゚✧",
+    music: "Upbeat K-Pop",
+    content: "A special bonus reel just for you! Thank you for scrolling all the way down 💕 Here's a little montage of our best moments together!",
+    imageUrl: "/assets/p3.jpeg",
+    videoUrl: "/assets/v4.mp4",
+    tags: ["bonus", "reel", "moments", "special"],
+    phase: NarrativePhase.FINAL,
+    comments: [
+      { id: 40, author: "Tatiana", date: "10 mins ago", content: "This is everything!! 💕", isFriend: true },
+      { id: 41, author: "Emma", date: "5 mins ago", content: "Best montage ever!!", isFriend: true },
+      { id: 42, author: "stardustangel", date: "3 mins ago", content: "I'm not crying you're crying 😭✨" },
+      { id: 43, author: "moonbeamxx", date: "1 min ago", content: "This made my whole day 🌸" }
     ]
   }
 ];

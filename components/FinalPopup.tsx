@@ -36,7 +36,7 @@ export const FinalPopup: React.FC<Props> = ({ message, onClose }) => {
           
           <div className="flex gap-3 w-full justify-center">
             <a 
-              href="https://www.google.com" 
+              href="https://tshewangrinzin.itch.io/deps-space" 
               target="_blank" 
               rel="noopener noreferrer"
               className="px-6 py-1 bg-[#c0c0c0] text-black border-2 border-t-white border-l-white border-b-black border-r-black active:border-t-black active:border-l-black active:border-b-white active:border-r-white font-bold text-sm min-w-[80px]"

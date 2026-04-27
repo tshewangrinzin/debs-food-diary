@@ -25,9 +25,26 @@ const App: React.FC = () => {
   const [showFinalPopup, setShowFinalPopup] = useState(false);
   const [popupMessage, setPopupMessage] = useState("");
   const currentPhase = NarrativePhase.NORMAL;
-  
+  // Track if the user arrived via a direct hash link (skip popup in that case)
+  const arrivedViaHash = useRef(false);
+
   // Create refs for posts to track visibility
   const postRefs = useRef<Map<number, HTMLDivElement>>(new Map());
+
+  // Handle hash-based navigation — scroll target to center of viewport
+  useEffect(() => {
+    const hash = window.location.hash.slice(1);
+    if (hash) {
+      arrivedViaHash.current = true;
+      // Small delay to ensure DOM is fully rendered
+      setTimeout(() => {
+        const el = document.getElementById(hash);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      }, 300);
+    }
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -46,16 +63,17 @@ const App: React.FC = () => {
 
       setVisiblePostId(activePostId);
 
-      // Bottom detection
-      const windowHeight = window.innerHeight;
-      const documentHeight = document.documentElement.scrollHeight;
-      const scrollTop = window.scrollY || document.documentElement.scrollTop;
-
-      // If we reach the bottom (within 10px)
-      if (scrollTop + windowHeight >= documentHeight - 10) {
-        if (!showFinalPopup) {
-          setPopupMessage(POPUP_MESSAGES[Math.floor(Math.random() * POPUP_MESSAGES.length)]);
-          setShowFinalPopup(true);
+      // Popup trigger right before the Bonus Reel card (id 12) becomes visible
+      // Skip if user arrived via direct hash link
+      if (!arrivedViaHash.current) {
+        const bonusCard = postRefs.current.get(12);
+        if (bonusCard && !showFinalPopup) {
+          const rect = bonusCard.getBoundingClientRect();
+          // Trigger when the card is about to enter the viewport (200px before it's visible)
+          if (rect.top < window.innerHeight + 200 && rect.bottom > 0) {
+            setPopupMessage(POPUP_MESSAGES[Math.floor(Math.random() * POPUP_MESSAGES.length)]);
+            setShowFinalPopup(true);
+          }
         }
       }
     };
@@ -99,17 +117,23 @@ const App: React.FC = () => {
               <p className="text-xs text-pink-400 font-mono">Viewing entry {visiblePostId} of {BLOG_POSTS.length}</p>
             </div>
 
-            {BLOG_POSTS.map((post) => (
-              <div 
-                key={post.id} 
-                ref={(el) => {
-                  if (el) postRefs.current.set(post.id, el);
-                  else postRefs.current.delete(post.id);
-                }}
-              >
-                <BlogPost post={post} onInteract={handleInteraction} />
-              </div>
-            ))}
+            {BLOG_POSTS.map((post) => {
+              const slug = post.id === 12 
+                ? 'bonus-reel' 
+                : post.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+              return (
+                <div 
+                  key={post.id}
+                  id={slug}
+                  ref={(el) => {
+                    if (el) postRefs.current.set(post.id, el);
+                    else postRefs.current.delete(post.id);
+                  }}
+                >
+                  <BlogPost post={post} onInteract={handleInteraction} />
+                </div>
+              );
+            })}
 
             {/* Load More Button */}
             <div className="flex justify-center mt-8">
